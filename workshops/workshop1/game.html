@@ -40,22 +40,22 @@
                     <tr>
                         <td><img src="icons/variable.svg" alt="" /></td>
                         <td>Variabler</td>
-                        <td>0</td>
+                        <td id="variabel-tabell">0</td>
                     </tr>
                     <tr>
                         <td><img src="icons/array.svg" alt="" /></td>
                         <td>Arrayer</td>
-                        <td>1</span></td>
+                        <td id="arrayer-tabell">1</span></td>
                     </tr>
                     <tr>
                         <td><img src="icons/loop.svg" alt="" /></td>
                         <td>Løkker</td>
-                        <td>2</td>
+                        <td id="løkker-tabell">2</td>
                     </tr>
                     <tr>
                         <td><img src="icons/function.svg" alt="" /></td>
                         <td>Funksjoner</td>
-                        <td>1</td>
+                        <td id="funksjoner-tabell">1</td>
                     </tr>
                 </table>
             </div>
@@ -75,16 +75,65 @@
     </main>
     <script>
         //PREPARE GAME CONFIG AND VARIABLES
-        //TODO: config
-       
-        //TODO: notebook
+        const gameconfig = {
+            player:"Kristoffer",
+            energy: 5,
+            points: 10,
+            duration: 138
+        }
         
+         //TODO: config
+
+         document.getElementById("playerName").innerHTML = gameconfig.player;
+         document.getElementById("energy").innerHTML = gameconfig.energy;
+         document.getElementById("points").innerHTML = gameconfig.points;
+         document.getElementById("duration").innerHTML = gameconfig.duration;
+
+       
+        
+
+        //TODO: notebook
+
+        const notebook = {
+            variables: 3,
+            arrays: 2,
+            loops: 4,
+            functions: 7
+        }
+
+         
 
         //TODO: print playerinfo to HTML
+
+        document.getElementById("variabel-tabell").innerHTML = notebook.variables;
+        document.getElementById("arrayer-tabell").innerHTML = notebook.arrays;
+        document.getElementById("løkker-tabell").innerHTML = notebook.loops;
+        document.getElementById("funksjoner-tabell").innerHTML = notebook.functions;
+
+console.log(notebook)
         
         //TODO: print notebook info to HTML
+        if(gameconfig.player === "Kristoffer"){
+      document.getElementById("playerName").innerHTML = gameconfig.player;
+        } else {
+            document.getElementById("playerName").innerHTML = "waiting for player..."
+        }
 
         //(BONUS) TODO: function for all prints
+
+       function updateStaticUI(){
+
+        document.getElementById("playerName").innerHTML = gameconfig.player;
+         document.getElementById("energy").innerHTML = gameconfig.energy;
+         document.getElementById("points").innerHTML = gameconfig.points;
+         document.getElementById("duration").innerHTML = gameconfig.duration;
+
+         document.getElementById("variabel-tabell").innerHTML = notebook.variables;
+        document.getElementById("arrayer-tabell").innerHTML = notebook.arrays;
+        document.getElementById("løkker-tabell").innerHTML = notebook.loops;
+        document.getElementById("funksjoner-tabell").innerHTML = notebook.functions;
+        
+       }
         
     </script>
 </body>

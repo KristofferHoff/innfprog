@@ -34,6 +34,7 @@
         
         <section id="notebook">
             <div id="notebook-page">
+
                 
                 <h2>Notater</h2>
                 <table>
@@ -78,7 +79,7 @@
         const gameconfig = {
             player:"Kristoffer",
             energy: 5,
-            points: 10,
+            points: 40,
             duration: 138
         }
         
@@ -100,6 +101,10 @@
             loops: 4,
             functions: 7
         }
+
+        //lage en value
+
+        let value=  0;
 
          
 
@@ -134,6 +139,58 @@ console.log(notebook)
         document.getElementById("funksjoner-tabell").innerHTML = notebook.functions;
         
        }
+
+       // for å vise fram notebook på siden
+       function toggleVisibility(elementid){
+        const element = document.getElementById(elementid)
+    
+        if(element.classList.contains("hidden") === true){
+            element.classList.remove("hidden")
+            element.style.display = "block"
+
+        }else{
+            element.classList.add("hidden")
+            element.style.display = "none"
+
+        }
+       }
+       
+       document.getElementById("notebookToggler").onclick = function() {
+    toggleVisibility("notebook");
+};
+
+// Initial skjuling av elementet
+document.getElementById("notebook").style.display = "none"; // Skjuler ved oppstart
+
+    //for å vise fram info "boken"
+    document.getElementById("infoToggler").onclick = function() {
+        toggleVisibility("info");}
+
+        document.addEventListener("keydown", function(event){
+            if(event.key === "n"){
+                toggleVisibility("notebook")
+            }
+
+        })
+
+        document.addEventListener("keydown", function(event){
+            if(event.key === "i")
+            toggleVisibility("info")
+
+        })
+
+        //Funksjon for å oppdatere HTML-utskrift av én konfigurasjonsverdi.
+        
+      function updateSingleStaticUI(element){
+        element.innerHTML = gameconfig.energy + value
+        
+      }
+
+      function updateConfigValue(){
+        
+      }
+
+
         
     </script>
 </body>

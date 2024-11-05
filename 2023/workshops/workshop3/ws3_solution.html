@@ -186,12 +186,12 @@
             ctx.fillText(text, canvas.width - 195, canvas.height - 10)
         }
         
-        //WS3, Oppg 3: Opptegning av Fortran
-        const fortran = {
-            speed: 3,
-            x: canvas.width / 2 - 20,
-            y: canvas.height / 2 - 40
-        }
+       
+
+       
+
+
+
 
         const fortranImage = new Image()
         fortranImage.src = "icons/fortran.png"
@@ -251,6 +251,57 @@
             requestAnimationFrame(renderFrames)
         }
         renderFrames()
+
+            //WS3, Oppg 3: Opptegning av Fortran
+            const fortran = {
+                speed: 3,
+                x: canvas.width / 2 - 20,
+                y: canvas.height / 2 - 40
+            }
+
+                    let up = false
+                    let down = false
+                    let right = false 
+                    let left = false
+
+                    //skjekk om en rettning blir aktivert  med en piltast:
+                    document.addEventListener("keydown", function(event) {
+                        if(event.key === "d" || event.key === "ArrowRight" ){
+                        right = true
+                        }
+                        if(event.key === "s" || event.key === "ArrowDown" ){
+                            down = true
+                        }
+                        if(event.key === "a" || event.key === "ArrowLeft" ){
+                            left = true
+                        }
+                        if(event.key === "w" || event.key === "ArrowUp" ){
+                            up = true
+                        }
+                        if(event.key === "h"){
+                            game.speed = 10
+                        }
+
+                    })
+
+                    document.addEventListener("keyup", function(event) {
+                    if(event.key === "d" || event.key === "ArrowRight" ){
+                        right = false
+                        }
+                        if(event.key === "s" || event.key === "ArrowDown" ){
+                            down = false
+                        }
+                        if(event.key === "a" || event.key === "ArrowLeft" ){
+                            left = false
+                        }
+                        if(event.key === "w" || event.key === "ArrowUp" ){
+                            up = false      }
+                        if(event.key === "h"){
+                            game.speed = 3
+                        }
+                    })
+                    
+
     </script>
 </body>
 </html>

@@ -82,6 +82,7 @@
         canvas.height = 600
         const ctx = canvas.getContext("2d")
         //PREPARE GAME CONFIG AND VARIABLES
+        
         //TODO: config
         const gameConfig = {
             player: "Marius",
@@ -99,7 +100,17 @@
             functions: 3
         }
 
-        
+         //WS3, Oppg 3: Opptegning av Fortran
+            const fortran = {
+                speed: 10,
+                x: canvas.width / 2 - 20,
+                y: canvas.height / 2 - 40
+            }
+
+                    let up = false
+                    let down = false
+                    let right = false 
+                    let left = false
 
         //(BONUS) TODO: function for all prints
         function updateStaticUI() {
@@ -249,20 +260,14 @@
             }
             //Kjør renderFrames på ny vha requestAnimationFrame
             requestAnimationFrame(renderFrames)
+
+              //skjekker etter bevegelse 
+              right ? fortran.x = fortran.x + fortran.speed  : null
+            left ? fortran.x =  fortran.x - fortran.speed: null
+        up ?  fortran.y = fortran.y - fortran.speed : null
+            down ? fortran.y = fortran.y + fortran.speed: null
         }
         renderFrames()
-
-            //WS3, Oppg 3: Opptegning av Fortran
-            const fortran = {
-                speed: 3,
-                x: canvas.width / 2 - 20,
-                y: canvas.height / 2 - 40
-            }
-
-                    let up = false
-                    let down = false
-                    let right = false 
-                    let left = false
 
                     //skjekk om en rettning blir aktivert  med en piltast:
                     document.addEventListener("keydown", function(event) {
@@ -300,6 +305,7 @@
                             game.speed = 3
                         }
                     })
+
                     
 
     </script>
